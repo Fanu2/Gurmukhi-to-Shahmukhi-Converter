@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Textarea, Heading } from '@chakra-ui/react';
+import { Box, Button, Textarea, Heading, List, ListItem } from '@chakra-ui/react';
 import { toShahmukhi } from 'gurmukhi-utils'; // Adjust the import as per your utility
 
 const words = [
@@ -35,6 +35,16 @@ const Home = () => {
         readOnly
         size="lg"
       />
+      <Box mt={5}>
+        <Heading as="h2" size="md" mb={2}>Test Words</Heading>
+        <List spacing={3}>
+          {words.map(([shahmukhi, gurmukhi], index) => (
+            <ListItem key={index}>
+              {gurmukhi} - {shahmukhi}
+            </ListItem>
+          ))}
+        </List>
+      </Box>
     </Box>
   );
 };
